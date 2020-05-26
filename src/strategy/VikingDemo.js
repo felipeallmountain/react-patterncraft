@@ -10,22 +10,27 @@ const VikingDemo = () => {
   const moveBehavior = useRef(Fly())
   const canvasRef = useRef()
 
-  const [coordinates, setCoordinates] = useState()
+  const [coordinates, setCoordinates] = useState({})
+  const [behavior, setBehavior] = useState('Fly')
 
   const keyHandler = evt => {
     const {keyCode} = evt
     switch (keyCode) {
       case 49:
         moveBehavior.current = Fly()
+        setBehavior('Fly')
         break
       case 50:
         moveBehavior.current = Walk()
+        setBehavior('Walk')
         break
       case 51:
         moveBehavior.current = Swim()
+        setBehavior('Swim')
         break
       case 52:
         moveBehavior.current = Teleport()
+        setBehavior('Teleport')
         break
       default:
         console.log('press keys from 1 to 4 to change vehicle behavior')
@@ -44,6 +49,10 @@ const VikingDemo = () => {
     
     window.addEventListener('keydown', keyHandler)
     canvas.addEventListener('mousedown', mouseHandler)
+
+    setCoordinates({
+      x: 300, y: 300
+    })
     
     return () => {
       window.removeEventListener('keydown', keyHandler)
@@ -52,7 +61,18 @@ const VikingDemo = () => {
   }, [])
 
   return (
-    <div className="viking-demo" ref={canvasRef}>
+    <div className="viking-demo pattern-container" ref={canvasRef}>
+      <div className="message">
+        <h1>Behavior: {behavior}</h1>
+        <h1>coordinates: x: {coordinates.x || 0} y: {coordinates.y || 0}</h1>
+        <h2>Keys:</h2>
+        <ol>
+          <li>Fly</li>
+          <li>Walk</li>
+          <li>Swim</li>
+          <li>Teleport</li>
+        </ol>
+      </div>
       <Viking
         moveBehavior={moveBehavior.current}
         coordinates={coordinates}
