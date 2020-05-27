@@ -5,6 +5,8 @@ import TankMode from './states/TankMode';
 import SiegeMode from './states/SiegeMode';
 import FlyMode from './states/FlyMode';
 
+import './siege-tank.scss';
+
 const SiegeTank = forwardRef((props, ref) => {
     const tankRef = useRef()
     const messageRef = useRef()
@@ -21,7 +23,7 @@ const SiegeTank = forwardRef((props, ref) => {
     useEffect(() => {
         TweenMax.to(tankRef.current, 2, {
             borderRadius: vehicleState.radius,
-            backgroundColor: vehicleState.color
+            color: vehicleState.color
         })
 
     }, [vehicleState])
@@ -56,8 +58,13 @@ const SiegeTank = forwardRef((props, ref) => {
                 position: 'absolute'
             }}
         >
-            <p>{vehicleState.labelMode}</p>
-            <p ref={messageRef}></p>
+            <p className="siege-tank__label">
+                {vehicleState.labelMode}
+            </p>
+            <p 
+                ref={messageRef}
+                className="siege-tank__message"
+            />
         </div>
     )
 })

@@ -3,7 +3,7 @@ import { TweenMax } from "gsap"
 const SiegeMode = (tank, label) => {
     const damage = 20
     const labelMode = 'Siege'
-    const color = '#F00'
+    const color = 'lightsalmon'
     const radius = '10% 30% 50% 70%'
     label.innerHTML = ''
 

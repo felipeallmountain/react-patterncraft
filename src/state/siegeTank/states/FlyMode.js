@@ -3,7 +3,7 @@ import { TweenMax } from "gsap"
 const FlyMode = (tank, label) => {
     const damage = 0
     const labelMode = 'Fly'
-    const color = '#F0F'
+    const color = 'lightgreen'
     const radius = '25% 10%'
     label.innerHTML = ''
 
