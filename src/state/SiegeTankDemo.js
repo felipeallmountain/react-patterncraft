@@ -45,6 +45,15 @@ const SiegeTankDemo = () => {
 
     return (
         <div className="siege-tank-demo pattern-container" ref={canvasRef}>
+            <div className="message">
+                <h2>Keys:</h2>
+                <p>Space bar. Attack</p>
+                <ol>
+                    <li>Tank</li>
+                    <li>Siege</li>
+                    <li>Fly</li>
+                </ol>                
+            </div>
             <SiegeTank ref={siegeTankRef}/>
         </div>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.scss';
-import VikingDemo from './strategy/VikingDemo';
+import VikingDemo from './strategy/problem/VikingDemo';
 import SiegeTankDemo from './state/SiegeTankDemo';
 
 function App() {
