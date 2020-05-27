@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.scss';
 import VikingDemo from './strategy/VikingDemo';
+import SiegeTankDemo from './state/SiegeTankDemo';
 
 function App() {
   const [pattern, setPattern] = useState('strategy')
@@ -9,6 +10,8 @@ function App() {
     switch(pattern) {
       case 'strategy':
         return <VikingDemo />
+      case 'state':
+        return <SiegeTankDemo />
       default:
         return <h1>no pattern</h1>
     }
@@ -22,7 +25,7 @@ function App() {
     <div className="App">
         <nav>
           <button onClick={() => onButtonClick('strategy')}>strategy</button>
-          <button onClick={() => onButtonClick()}>no pattt</button>
+          <button onClick={() => onButtonClick('state')}>state</button>
         </nav>
       <div className="patterns">
         {getPatternDemo()}
