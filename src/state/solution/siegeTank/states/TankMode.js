@@ -1,18 +1,18 @@
 import { TweenMax } from "gsap"
 
-const TankMode = (tank, label) => {
+function TankMode (tank, label) {
     const damage = 10
     const labelMode = 'Tank'
     const color = 'lightsteelblue'
     const radius = '20%'
     label.innerHTML = ''
 
-    const move = (coordinates) => {
+    function move (coordinates) {
         const {x, y} = coordinates
-        TweenMax.to(tank, 1, {x, y})
+        TweenMax.to(tank, 3, {x, y})
     }
 
-    const attack = () => {
+    function attack () {
         const attackObj = {
             value: 0
         }
@@ -24,16 +24,16 @@ const TankMode = (tank, label) => {
         })
     }
 
-    const toTankMode = (mode, setState) => {
+    function toTankMode (Mode, setState) {
         label.innerHTML = `Already in tank`
     }
 
-    function toSiegeMode (mode, setState) {
-        setState(mode(tank, label))
+    function toSiegeMode (Mode, setState) {
+        setState(new Mode(tank, label))
     }
 
-    const toFlyMode = (mode, setState) => {
-        setState(mode(tank, label))
+    function toFlyMode (Mode, setState) {
+        setState(new Mode(tank, label))
     }
 
     return {

@@ -1,7 +1,7 @@
 import {TweenMax, TimelineMax} from 'gsap'
 
-const Swim = () => {
-  const move = (element, tweenVars) => {
+function Swim () {
+  function move (element, tweenVars) {
     TweenMax.to(element, 4, tweenVars)
 
     const tl = new TimelineMax()

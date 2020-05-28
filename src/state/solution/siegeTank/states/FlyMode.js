@@ -1,13 +1,13 @@
 import { TweenMax } from "gsap"
 
-const FlyMode = (tank, label) => {
+function FlyMode (tank, label) {
     const damage = 0
     const labelMode = 'Fly'
     const color = 'lightgreen'
     const radius = '25% 10%'
     label.innerHTML = ''
 
-    const move = (coordinates) => {
+    function move (coordinates) {
         const {x, y} = coordinates
         TweenMax.to(tank, 0.25, {
             x,
@@ -19,19 +19,19 @@ const FlyMode = (tank, label) => {
         })
     }
 
-    const attack = () => {
+    function attack () {
         label.innerHTML = `Cannot attack`
     }
 
-    const toTankMode = (mode, setState) => {
-        setState(mode(tank, label))
+    function toTankMode (Mode, setState) {
+        setState(new Mode(tank, label))
     }
 
-    const toSiegeMode = () => {
+    function toSiegeMode () {
         label.innerHTML = `Cannot switch to siege`
     }
 
-    const toFlyMode = () => {
+    function toFlyMode () {
         label.innerHTML = `Already fly`
     }
 

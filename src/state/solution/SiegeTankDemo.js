@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 import SiegeTank from './siegeTank/SiegeTank'
 
-const SiegeTankDemo = () => {
+function SiegeTankDemo () {
     const siegeTankRef = useRef()
     const canvasRef = useRef()
 
-    const keyHandler = evt => {
+    function keyHandler (evt) {
         const {keyCode} = evt
         switch (keyCode) {
             case 32: // space bar
@@ -23,12 +23,12 @@ const SiegeTankDemo = () => {
             default:
                 console.log('press keys from 1 to 3 or spacebar to change vehicle behavior')
         }
-      }
+    }
 
-      const mouseHandler = evt => {
+    function mouseHandler (evt) {
         const { pageX, pageY } = evt
         siegeTankRef.current.move({x: pageX, y: pageY})
-      }
+    }
 
     useEffect(() => {
         const canvas = canvasRef.current
@@ -37,15 +37,18 @@ const SiegeTankDemo = () => {
         canvas.addEventListener('mousedown', mouseHandler)
         
         return () => {
-          window.removeEventListener('keydown', keyHandler)
-          canvas.removeEventListener('mousedown', mouseHandler)
+            window.removeEventListener('keydown', keyHandler)
+            canvas.removeEventListener('mousedown', mouseHandler)
         }
       }, [])
 
 
     return (
-        <div className="siege-tank-demo pattern-container" ref={canvasRef}>
+        <div 
+            ref={canvasRef}
+            className="siege-tank-demo pattern-container">
             <div className="message">
+                <h1>Siege tank demo</h1>
                 <h2>Keys:</h2>
                 <p>Space bar. Attack</p>
                 <ol>

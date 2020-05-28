@@ -2,7 +2,7 @@ import React from 'react'
 import Vehicle from './Vehicle'
 import './viking.scss';
 
-const Viking = props => {
+function Viking (props) {
   const {moveBehavior, coordinates} = props
   return (    
     <Vehicle moveBehavior={moveBehavior} coordinates={coordinates}>

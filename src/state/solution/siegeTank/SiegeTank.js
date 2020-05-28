@@ -17,13 +17,12 @@ const SiegeTank = forwardRef((props, ref) => {
     })
 
     useEffect(() => {
-        setVehicleState(TankMode(tankRef.current, messageRef.current))
+        setVehicleState(new TankMode(tankRef.current, messageRef.current))
     }, [])
 
     useEffect(() => {
         TweenMax.to(tankRef.current, 2, {
-            borderRadius: vehicleState.radius,
-            color: vehicleState.color
+            borderRadius: vehicleState.radius
         })
 
     }, [vehicleState])

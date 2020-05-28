@@ -6,30 +6,30 @@ import Swim from './vehicle/moves/Swim'
 import Teleport from './vehicle/moves/Teleport'
 import './viking-demo.scss';
 
-const VikingDemo = () => {
-  const moveBehavior = useRef(Fly())
+function VikingDemo () {
+  const moveBehavior = useRef(new Fly())
   const canvasRef = useRef()
 
   const [coordinates, setCoordinates] = useState({})
   const [behavior, setBehavior] = useState('Fly')
 
-  const keyHandler = evt => {
+  function keyHandler (evt) {
     const {keyCode} = evt
     switch (keyCode) {
       case 49:
-        moveBehavior.current = Fly()
+        moveBehavior.current = new Fly()
         setBehavior('Fly')
         break
       case 50:
-        moveBehavior.current = Walk()
+        moveBehavior.current = new Walk()
         setBehavior('Walk')
         break
       case 51:
-        moveBehavior.current = Swim()
+        moveBehavior.current = new Swim()
         setBehavior('Swim')
         break
       case 52:
-        moveBehavior.current = Teleport()
+        moveBehavior.current = new Teleport()
         setBehavior('Teleport')
         break
       default:
@@ -37,7 +37,7 @@ const VikingDemo = () => {
     }
   }
 
-  const mouseHandler = evt => {
+  function mouseHandler (evt) {
       const { pageX, pageY } = evt
       setCoordinates({
         x: pageX, y: pageY

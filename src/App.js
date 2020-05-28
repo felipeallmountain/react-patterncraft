@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.scss';
 import VikingDemo from './strategy/problem/VikingDemo';
-import SiegeTankDemo from './state/SiegeTankDemo';
+import SiegeTankDemo from './state/problem/SiegeTankDemo';
 
 function App() {
   const [pattern, setPattern] = useState('strategy')

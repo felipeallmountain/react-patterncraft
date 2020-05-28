@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {TweenMax} from 'gsap'
 
-const Vehicle = (props) => {
+function Vehicle (props) {
   const vehicleRef = useRef()
 
   const {

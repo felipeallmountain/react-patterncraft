@@ -3,13 +3,13 @@ import { TweenMax, TimelineMax } from 'gsap'
 
 import './viking-demo.scss'
 
-const VikingDemo = () => {
+function VikingDemo () {
     const [isFlying, setIsFlying] = useState(false)
 
     const canvasRef = useRef()
     const vikingRef = useRef()
 
-    const keyHandler = evt => {
+    function keyHandler (evt) {
         const {keyCode} = evt
 
         switch(keyCode) {
@@ -21,7 +21,7 @@ const VikingDemo = () => {
         }
     }
 
-    const mouseHandler = evt => {
+    function mouseHandler (evt) {
         const { pageX, pageY } = evt
         const { current } = vikingRef
         TweenMax.killTweensOf(current)          
@@ -65,13 +65,11 @@ const VikingDemo = () => {
             className="viking-demo pattern-container">
             <div className="message">
                 <h1>Viking demo</h1>
-                <h1>Behavior: {isFlying ? 'Flying' : 'walking'}</h1>
+                <h1>Behavior: {isFlying ? 'flying' : 'walking'}</h1>
                 <h2>Keys:</h2>
                 <ol>
                 <li>Fly</li>
                 <li>Walk</li>
-                <li>Swim</li>
-                <li>Teleport</li>
                 </ol>
             </div>
             <div
